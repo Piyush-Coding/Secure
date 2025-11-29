@@ -1,0 +1,637 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered malicious code detection system for enterprise security">
+    <title>AI Malicious Code Detection - Advanced Security Solution</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    {% csrf_token %}
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureAI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="{% url 'index' %}#contact">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="demo.html" class="btn-demo">Request Demo</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">AI-Powered Malicious Code Detection</h1>
+            <p class="hero-subtitle">Protect your systems with cutting-edge artificial intelligence that detects threats in real-time</p>
+            <div class="hero-buttons">
+                <a href="upload.html" class="btn btn-primary">Get Started</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>99.7%</h3>
+                    <p>Detection Accuracy</p>
+                </div>
+                <div class="stat-item">
+                    <h3>&lt;10ms</h3>
+                    <p>Analysis Time</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500K+</h3>
+                    <p>Threats Blocked</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Summary -->
+    <section id="profile-summary" class="profile-summary" hidden>
+        <div class="container">
+            <div class="profile-summary-header">
+                <div>
+                    <h2>Your SecureAI Profile</h2>
+                    <p class="profile-summary-subtitle">Welcome back! Here’s a quick overview of your account.</p>
+                </div>
+                <a class="profile-summary-link" href="profile.html">
+                    View full profile
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="profile-summary-grid">
+                <div class="profile-summary-card">
+                    <h3 id="summaryName">User Name</h3>
+                    <p id="summaryEmail">email@example.com</p>
+                    <span class="profile-summary-role" id="summaryRole">Security Lead</span>
+                </div>
+                <div class="profile-summary-card">
+                    <h4>Organization</h4>
+                    <p id="summaryCompany">Company Inc.</p>
+                    <h4>Plan</h4>
+                    <p id="summaryPlan">Professional</p>
+                </div>
+                <div class="profile-summary-card">
+                    <h4>Last Sign-In</h4>
+                    <p id="summaryLastLogin">--</p>
+                    <h4>Member Since</h4>
+                    <p id="summaryJoined">--</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Advanced AI technology to keep your systems secure</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Deep Learning Analysis</h3>
+                    <p>Neural networks trained on millions of malware samples for superior detection accuracy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Scanning</h3>
+                    <p>Instant analysis of code with minimal performance impact on your systems</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Detects threats across Python, JavaScript, C++, Java, and 20+ programming languages</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Zero-Day Protection</h3>
+                    <p>Identifies unknown threats using behavioral analysis and pattern recognition</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Threat Intelligence</h3>
+                    <p>Comprehensive reports with actionable insights and remediation recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Easy Integration</h3>
+                    <p>Seamless integration with CI/CD pipelines, IDEs, and existing security tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Simple, powerful, and effective in three steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload or Integrate</h3>
+                        <p>Upload code files directly or integrate with your development environment and repositories</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced AI models analyze code structure, behavior patterns, and known threat signatures</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Results</h3>
+                        <p>Receive detailed reports with threat levels, affected areas, and remediation steps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <h2>Use Cases</h2>
+                <p>Trusted by organizations across industries</p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Enterprise Security</h3>
+                    <p>Protect large-scale applications and infrastructure from sophisticated attacks</p>
+                </div>
+                <div class="use-case-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>DevOps Teams</h3>
+                    <p>Integrate security scanning into your CI/CD pipeline for continuous protection</p>
+                </div>
+                <div class="use-case-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Platforms</h3>
+                    <p>Secure cloud-native applications and serverless functions</p>
+                </div>
+                <div class="use-case-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Educational Institutions</h3>
+                    <p>Scan student submissions and research code for malicious content</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Banner 1 -->
+    <section class="image-banner banner-1">
+        <div class="banner-overlay"></div>
+        <div class="container banner-content">
+            <h2>Advanced Threat Detection</h2>
+            <p>Leveraging machine learning to stay ahead of evolving cyber threats</p>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <i class="fas fa-users"></i>
+                    <h3>10</h3>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-globe"></i>
+                    <h3>India</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-file-code"></i>
+                    <h3>50+</h3>
+                    <p>Files Scanned Daily</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-award"></i>
+                    <h3>99.9%</h3>
+                    <p>Customer Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>Experts in AI, cybersecurity, and software engineering</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/static/image/piyush.jpg" alt="Piyush Yadav">
+                    </div>
+                    <h3>Piyush Yadav</h3>
+                    <p class="member-role">Software Engineer & <br>Backend Developer</p>
+                    <p class="member-bio">BCA 2nd year <br> Rama University</p>
+                    <div class="member-social">
+                        <a href="https://www.linkedin.com/in/piyush-yadav-105065335" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Y92071203Yadav?t=xHED7Kd7s1An4FB0JgciZA&s=08 "><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/static/image/Prashant.jpg" alt="Prashant Kumar">
+                    </div>
+                    <h3>Prashant Kumar</h3>
+                    <p class="member-role">Frontend Developer &<br> UI/UX Designer</p>
+                    <p class="member-bio">BCA 2nd year <br> Rama University</p>
+                    <div class="member-social">
+                        <a href="https://www.linkedin.com/in/prashant-yadav-bb4251370?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/static/image/Shyam Singh.jpg" alt="Ayush">
+                    </div>
+                    <h3>Shyam Singh</h3>
+                    <p class="member-role">Frontend Developer & <br> Bug Bounty</p>
+                    <p class="member-bio">BCA 2nd year <br> Rama University</p>
+                    <div class="member-social">
+                        <a href="https://www.linkedin.com/in/shyam-singh-36174b330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/static/image/Sudhanshu.jpeg" alt="Sudhanshu">
+                    </div>
+                    <h3>Sudhanshu Pandey</h3>
+                    <p class="member-role">Frontend Developer</p>
+                    <p class="member-bio">BCA 2nd year <br> Rama University</p>
+                    <div class="member-social">
+                        <a href="https://www.linkedin.com/in/mr-sudhanshu-pandey-73a0a1376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Banner 2 -->
+    <section class="image-banner banner-2">
+        <div class="banner-overlay"></div>
+        <div class="container banner-content">
+            <h2>Real-Time Protection</h2>
+            <p>Monitor and secure your codebase 24/7 with continuous scanning</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by leading organizations worldwide</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"This AI detection system caught vulnerabilities our traditional tools missed. It's now an essential part of our security stack."</p>
+                    <div class="testimonial-author">
+                        <img src="/static/image/Ayush2.jpg" alt="Ayush">
+                        <div>
+                            <h4>Ayush</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"The integration was seamless and the detection accuracy is impressive. We've reduced security incidents by 85%."</p>
+                    <div class="testimonial-author">
+                        <img src="/static/image/Shobhit.jpg" alt="Shobhit">
+                        <div>
+                            <h4>Shobhit Yadav</h4>
+                            <p>Android Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Fast, accurate, and easy to use. The detailed reports help our team understand and fix security issues quickly."</p>
+                    <div class="testimonial-author">
+                        <img src="/static/image/sumit.jpg" alt="Sumit">
+                        <div>
+                            <h4>Sumit Saxena</h4>
+                            <p>AI/ML Researcher &<br>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Plan</h2>
+                <p>Flexible pricing for teams of all sizes</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">
+                        {% comment %} <span class="currency">$</span> {% endcomment %}
+                        <span class="amount">Free</span>
+                        {% comment %} <span class="period">/month</span> {% endcomment %}
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 1,000 scans/month</li>
+                        <li><i class="fas fa-check"></i> 5 programming languages</li>
+                        <li><i class="fas fa-check"></i> Basic reporting</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                        <li class="disabled"><i class="fas fa-times"></i> API access</li>
+                    </ul>
+                    <a href="upload.html" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">149</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 10,000 scans/month</li>
+                        <li><i class="fas fa-check"></i> All programming languages</li>
+                        <li><i class="fas fa-check"></i> Advanced reporting</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                    </ul>
+                    <a href="coming.html" class="btn btn-primary" target="_blank">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="amount">Custom</span>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Unlimited scans</li>
+                        <li><i class="fas fa-check"></i> All programming languages</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> 24/7 dedicated support</li>
+                        <li><i class="fas fa-check"></i> On-premise deployment</li>
+                    </ul>
+                    <a href="coming.html" class="btn btn-outline" target="_blank">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our solution</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How accurate is the AI detection?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI models achieve 99.7% accuracy in detecting malicious code, with continuous improvements through machine learning. We maintain extremely low false positive rates (less than 0.5%) to minimize disruption to your workflow.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Which programming languages are supported?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support 25+ programming languages including Python, JavaScript, Java, C++, C#, PHP, Ruby, Go, Rust, and more. Our AI models are continuously trained to recognize patterns across different languages.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I integrate this with my existing tools?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We provide plugins for popular IDEs (VS Code, IntelliJ, PyCharm), CI/CD platforms (Jenkins, GitLab, GitHub Actions), and a comprehensive REST API for custom integrations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a scan take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most scans complete in under 10 milliseconds per file. Large codebases are processed in parallel, with typical project scans completing in seconds rather than minutes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my code kept private and secure?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. All code is encrypted in transit and at rest. We never store your source code permanently, and analysis happens in isolated environments. Enterprise plans offer on-premise deployment options.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What kind of support do you offer?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide email support for all plans, priority support for Professional plans, and 24/7 dedicated support with custom SLAs for Enterprise customers. Our team includes security experts who can help with remediation strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Started Today</h2>
+                <p>Request a demo or contact our sales team</p>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="contact-message {% if message.tags == 'success' %}success{% else %}error{% endif %}">
+                        <i class="fas fa-{% if message.tags == 'success' %}check-circle{% else %}exclamation-circle{% endif %}"></i>
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83f0e2efe6f0c3f0e6e0f6f1e6e2eaade0ecee">rum2425602@ramauniversity.ac.in</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9193583756</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Ashram Road Mainpuri</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/piyush-yadav-105065335"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Y92071203Yadav?t=xHED7Kd7s1An4FB0JgciZA&s=08 "><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="from_index" value="true">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" value="{{ request.user.get_full_name }}" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" value="{{ request.user.email }}" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <select name="plan">
+                            <option value="">Select Plan Interest</option>
+                            <option value="starter">Starter</option>
+                            <option value="professional">Professional</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-shield-alt"></i> SecureAI</h3>
+                    <p>Advanced AI-powered malicious code detection for modern development teams.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/piyush-yadav-105065335"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Y92071203Yadav?t=xHED7Kd7s1An4FB0JgciZA&s=08 "><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#team">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="{% url 'index' %}#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/static/privacy-policy.txt">Privacy Policy</a></li>
+                        <li><a href="/static/terms-of-service.txt">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SecureAI. All rights reserved. | Protecting code, empowering developers.<br>Develop by Piyush Yadav.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script defer src="{% static 'script.js' %}"></script>
+    <script defer src="{% static 'profile.js' %}"></script>
+</body>
+</html>

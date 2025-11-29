@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upload and scan your code files for malicious content detection">
+    <title>Upload Code - SecureAI</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="/static/upload.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureAI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="upload.html" class="active-link">Upload</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-header">
+                <h1><i class="fas fa-cloud-upload-alt"></i> Upload Your Code</h1>
+                <p>Upload files or paste code directly to scan for malicious content</p>
+            </div>
+
+            <div class="upload-container">
+                <!-- File Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-file-code"></i>
+                        <h3>Drag & Drop Files Here</h3>
+                        <p>or</p>
+                        <button type="button" class="btn-browse" id="browseBtn">
+                            <i class="fas fa-folder-open"></i> Browse Files
+                        </button>
+                        <input type="file" id="fileInput" multiple accept=".js,.py,.java,.cpp,.c,.php,.rb,.go,.rs,.ts,.jsx,.tsx,.html,.css,.json,.xml,.txt" hidden>
+                        <p class="upload-hint">Supported: JS, Python, Java, C++, PHP, Ruby, Go, Rust, TypeScript, HTML, CSS, JSON, XML, TXT</p>
+                    </div>
+                </div>
+
+                <!-- Code Paste Area -->
+                <div class="code-paste-section">
+                    <h3><i class="fas fa-code"></i> Or Paste Code Directly</h3>
+                    <div class="code-input-wrapper">
+                        <textarea 
+                            id="codeInput" 
+                            placeholder="Paste your code here for analysis..."
+                            rows="12"
+                        ></textarea>
+                        <div class="code-actions">
+                            <button type="button" class="btn-clear" id="clearCodeBtn">
+                                <i class="fas fa-eraser"></i> Clear
+                            </button>
+                            <select id="languageSelect">
+                                <option value="auto">Auto-detect</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="cpp">C++</option>
+                                <option value="c">C</option>
+                                <option value="php">PHP</option>
+                                <option value="ruby">Ruby</option>
+                                <option value="go">Go</option>
+                                <option value="rust">Rust</option>
+                                <option value="typescript">TypeScript</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="json">JSON</option>
+                                <option value="xml">XML</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Button -->
+                <div class="upload-actions">
+                    <button type="button" class="btn-upload" id="uploadBtn" disabled>
+                        <i class="fas fa-shield-alt"></i> Scan for Threats
+                    </button>
+                    <button type="button" class="btn-reset" id="resetBtn" hidden>
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+
+                <!-- Status Message -->
+                <div class="status-message" id="statusMessage" hidden>
+                    <i class="fas fa-info-circle"></i>
+                    <span id="statusText"></span>
+                </div>
+
+                <!-- Uploaded Files List -->
+                <div class="files-list" id="filesList" hidden>
+                    <h3><i class="fas fa-list"></i> Selected Files</h3>
+                    <ul id="filesListItems"></ul>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection" hidden>
+                    <h3><i class="fas fa-chart-line"></i> Scan Results</h3>
+                    <div class="results-summary">
+                        <div class="result-stat">
+                            <i class="fas fa-file-code"></i>
+                            <span id="filesScanned">0</span>
+                            <p>Files Scanned</p>
+                        </div>
+                        <div class="result-stat">
+                            <i class="fas fa-shield-alt"></i>
+                            <span id="threatsFound">0</span>
+                            <p>Threats Found</p>
+                        </div>
+                        <div class="result-stat">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="filesSafe">0</span>
+                            <p>Files Safe</p>
+                        </div>
+                    </div>
+                    <div class="results-details" id="resultsDetails"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="upload-footer">
+        <div class="container">
+            <p>&copy; 2024 SecureAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/upload.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAI &middot; Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/auth.css">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <aside class="auth-panel brand">
+            <div class="brand-header">
+                <div class="brand-name">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>SecureAI</span>
+                </div>
+            </div>
+            <div>
+                <h1 class="brand-title">Build your security perimeter with AI.</h1>
+                <p class="brand-copy">
+                    Create a SecureAI account to scan repositories, automate compliance, and empower your developers with actionable security insights.
+                </p>
+            </div>
+            <div class="brand-highlights">
+                <div class="brand-highlight">
+                    <i class="fas fa-diagram-project"></i>
+                    <span>Integrates with GitHub, GitLab &amp; Bitbucket</span>
+                </div>
+                <div class="brand-highlight">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Role-based access management</span>
+                </div>
+                <div class="brand-highlight">
+                    <i class="fas fa-headset"></i>
+                    <span>24/7 security analyst support</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="auth-panel form">
+            <header class="form-header">
+                <h2 class="form-title">Create your SecureAI account</h2>
+                <p class="form-subtitle">
+                    Already registered?
+                    <a href="login.html">Sign in</a>
+                </p>
+            </header>
+
+            <div id="statusMessage" class="status-message" role="alert" hidden>
+                <i class="fas fa-info-circle"></i>
+                <span></span>
+            </div>
+
+            {% if error %}
+            <div class="status-message error" role="alert">
+                <i class="fas fa-info-circle"></i>
+                <span>{{ error }}</span>
+            </div>
+            {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                <div class="status-message success" role="status">
+                    <i class="fas fa-circle-check"></i>
+                    <span>{{ message }}</span>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            <form id="signupForm" novalidate method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="signupName">Full name</label>
+                    <div class="input-control">
+                        <input type="text" id="signupName" name="name" placeholder="Alex Johnson" autocomplete="name" required minlength="2">
+                    </div>
+                    <p class="error-note" hidden>Please enter your full name.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupCompany">Company</label>
+                    <div class="input-control">
+                        <input type="text" id="signupCompany" name="company" placeholder="Secure Systems Ltd." autocomplete="organization">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupEmail">Work email</label>
+                    <div class="input-control">
+                        <input type="email" id="signupEmail" name="email" placeholder="you@company.com" autocomplete="email" required>
+                    </div>
+                    <p class="error-note" hidden>Enter a valid work email.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="input-control">
+                        <input type="password" id="signupPassword" name="password" placeholder="Create a strong password" autocomplete="new-password" required minlength="8">
+                        <button class="toggle-password" type="button" data-target="signupPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <p class="error-note" hidden>Use at least 8 characters.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupConfirm">Confirm password</label>
+                    <div class="input-control">
+                        <input type="password" id="signupConfirm" name="confirmPassword" placeholder="Retype your password" autocomplete="new-password" required minlength="8">
+                        <button class="toggle-password" type="button" data-target="signupConfirm">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <p class="error-note" hidden>Passwords do not match.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupPlan">Plan preference</label>
+                    <div class="input-control">
+                        <select id="signupPlan" name="plan">
+                            <option value="">Select a plan</option>
+                            <option value="starter">Starter</option>
+                            <option value="professional">Professional</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox" id="signupTerms" name="terms" required>
+                        <span>I agree to the <a href="#">Terms of Service</a></span>
+                    </label>
+                </div>
+
+                <button class="primary-button" type="submit">Create account</button>
+            </form>
+
+            <p class="form-divider">or start with</p>
+
+            <div class="social-signin">
+                <button class="social-button" type="button">
+                    <i class="fab fa-microsoft"></i>
+                    Microsoft Entra ID
+                </button>
+                <button class="social-button" type="button">
+                    <i class="fab fa-slack"></i>
+                    Slack
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
+

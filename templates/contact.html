@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAI · Contact</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="contact-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureAI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{% url 'index' %}#features">Features</a></li>
+                <li><a href="{% url 'index' %}#how-it-works">How It Works</a></li>
+                <li><a href="{% url 'index' %}#team">Team</a></li>
+                <li><a href="{% url 'index' %}#pricing">Pricing</a></li>
+                <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'upload' %}" class="btn-demo">Upload</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact hero contact-full">
+        <div class="container">
+            <div class="section-header">
+                <h1>Get in Touch</h1>
+                <p>Send us a message and the SecureAI team will follow up shortly.</p>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="status-message {% if message.tags %}{{ message.tags }}{% endif %}">
+                        <i class="fas fa-info-circle"></i>
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>rum2425602@ramauniversity.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9193583756</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Ashram Road, Mainpuri</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" value="{{ initial.name }}" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" value="{{ initial.email }}" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" value="{{ initial.subject }}">
+                    </div>
+                    <div class="form-group">
+                        <select name="plan">
+                            <option value="">Select Plan Interest</option>
+                            <option value="starter" {% if initial.plan == "starter" %}selected{% endif %}>Starter</option>
+                            <option value="professional" {% if initial.plan == "professional" %}selected{% endif %}>Professional</option>
+                            <option value="enterprise" {% if initial.plan == "enterprise" %}selected{% endif %}>Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required>{{ initial.message }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 SecureAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="{% static 'script.js' %}"></script>
+</body>
+</html>
+

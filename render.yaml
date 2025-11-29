@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: co-detection-web
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate --noinput
+    startCommand: gunicorn Co_Detection.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "False"
+      # Set DJANGO_SECRET_KEY, ALLOWED_HOSTS, DATABASE_URL, and email settings via Render dashboard
+
+

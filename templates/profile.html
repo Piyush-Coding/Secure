@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAI · Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/profile.css">
+</head>
+<body class="profile-page">
+    <div class="profile-shell">
+        <aside class="profile-sidebar">
+            <div class="brand-name">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureAI</span>
+            </div>
+            <div class="profile-avatar">
+                <div class="avatar-circle" id="profileInitials">{{ profile.initials }}</div>
+                <div class="avatar-meta">
+                    <strong id="profileName">{{ profile.name }}</strong>
+                    <span id="profileEmail">{{ profile.email }}</span>
+                </div>
+            </div>
+            <nav class="nav-list">
+                <a href="{% url 'index' %}"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#" class="active"><i class="fas fa-user"></i> Profile</a>
+                <a href="#settings"><i class="fas fa-gear"></i> Settings</a>
+                <a href="#"><i class="fas fa-life-ring"></i> Support</a>
+            </nav>
+        </aside>
+
+        <main class="profile-main">
+            <section class="profile-header">
+                <div>
+                    <h1>Profile Overview</h1>
+                    <p>Manage your SecureAI identity, organization preferences, and security settings.</p>
+                </div>
+                <div class="profile-actions">
+                    <a class="secondary" href="{% url 'index' %}">Back to Index</a>
+                    <form id="logoutForm" method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button id="logoutButton" type="submit">Sign Out</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="profile-card">
+                <h2>Account information</h2>
+                <div class="profile-grid">
+                    <div class="profile-field">
+                        <span>Full name</span>
+                        <strong id="detailName">{{ profile.name }}</strong>
+                    </div>
+                    <div class="profile-field">
+                        <span>Email address</span>
+                        <strong id="detailEmail">{{ profile.email }}</strong>
+                    </div>
+                    <div class="profile-field">
+                        <span>Organization</span>
+                        <strong id="detailCompany">{{ profile.company|default:"--" }}</strong>
+                    </div>
+                    <div class="profile-field">
+                        <span>Role</span>
+                        <strong id="detailRole">{{ profile.role }}</strong>
+                    </div>
+                    <div class="profile-field">
+                        <span>Plan</span>
+                        <strong id="detailPlan">{{ profile.plan }}</strong>
+                    </div>
+                    <div class="profile-field">
+                        <span>Member since</span>
+                        <strong id="detailJoined">{{ profile.joined|date:"M d, Y" }}</strong>
+                    </div>
+                    <div class="profile-field">
+                        <span>Last login</span>
+                        <strong id="detailLastLogin">
+                            {% if profile.last_login %}
+                                {{ profile.last_login|date:"M d, Y H:i" }}
+                            {% else %}
+                                --
+                            {% endif %}
+                        </strong>
+                    </div>
+                </div>
+            </section>
+
+            <section id="settings" class="settings-panel">
+                <div class="profile-card">
+                    <h2>Quick shortcuts</h2>
+                    <div class="profile-grid">
+                        <div class="profile-field">
+                            <span>Integrations</span>
+                            <strong>GitHub, GitLab, Bitbucket</strong>
+                        </div>
+                        <div class="profile-field">
+                            <span>Security status</span>
+                            <strong id="detailSecurityStatus">MFA Enabled</strong>
+                        </div>
+                        <div class="profile-field">
+                            <span>Workspaces</span>
+                            <strong>Global Threat Lab</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <header>
+                        <h3>Security settings</h3>
+                        <span id="settingsStatus">Autosaved</span>
+                    </header>
+                    <div class="settings-option">
+                        <div class="option-info">
+                            <strong>Multi-factor authentication</strong>
+                            <span>Require OTP verification at sign-in.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="settingMfa">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div class="option-info">
+                            <strong>Session auto-lock</strong>
+                            <span>Sign out automatically after 30 minutes of inactivity.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="settingAutolock">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-footer">
+                        <button class="btn-cancel" type="button" id="settingsReset">Reset</button>
+                        <button class="btn-save" type="button" id="settingsSave">Save changes</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <header>
+                        <h3>Notifications</h3>
+                    </header>
+                    <div class="settings-option">
+                        <div class="option-info">
+                            <strong>Critical threat alerts</strong>
+                            <span>Receive emails for high severity detections.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="settingAlerts">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div class="option-info">
+                            <strong>Weekly digest</strong>
+                            <span>Get a summary of scan activity every Monday.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="settingDigest">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profileEmpty" class="profile-empty" hidden>
+                <p>No active session found. <a href="login.html">Sign in</a> to view your profile.</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        window.secureAIProfile = {{ profile_json|safe }};
+    </script>
+    <script src="profile.js"></script>
+</body>
+</html>
+

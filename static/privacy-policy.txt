@@ -1,0 +1,86 @@
+Privacy Policy for CodeGuard AI - Malicious Code Detector
+
+Effective Date: November 08, 2025
+Last Updated: November 08, 2025
+
+CodeGuard AI ("we," "our," or "us") operates the website https://codeguard-ai.vercel.app (the "Service"). 
+
+We respect your privacy and are committed to protecting it. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service, including when you upload files or paste code for malicious code detection.
+
+1. Information We Collect
+
+a) Files You Upload
+- When you upload files (.py, .js, .exe, .apk, .zip, etc.) for scanning, we temporarily receive and process the file contents.
+- Uploaded files are analyzed using AI models for malicious code, viruses, trojans, ransomware, or other threats.
+- We DO NOT store your files permanently. Files are automatically deleted within 60 seconds after scanning completes.
+
+b) Pasted Code
+- Any code you paste in the text area is processed in real-time and deleted immediately after analysis.
+
+c) Automatically Collected Information
+- IP address (for rate limiting and abuse prevention only)
+- Browser type, device information, and approximate location
+- Usage data (scan count, timestamps) - stored anonymously
+
+d) Cookies & Analytics
+- We use Vercel Analytics (privacy-first, no personal data)
+- No Google Analytics, no Facebook Pixel, no tracking cookies
+- Session cookies only for functionality (expire when you close browser)
+
+2. How We Use Your Information
+
+- To perform malware/virus scanning using AI
+- To improve our detection models (anonymized data only)
+- To prevent abuse (rate limiting per IP)
+- To generate scan reports shown to you
+
+3. Data Sharing & Disclosure
+
+- We DO NOT sell, rent, or share your files or code with anyone
+- No third-party advertising partners
+- Only exception: If a file contains illegal content (child abuse material, etc.), we are legally required to report to authorities
+- Service providers: Vercel (hosting) - they process data under strict privacy rules
+
+4. Data Security
+
+- All file processing happens in secure, isolated environments
+- Files are scanned in memory (never written to disk)
+- HTTPS encryption everywhere
+- AI models run on secure servers with no data retention
+
+5. Data Retention
+
+- Uploaded files & pasted code: Deleted within 60 seconds
+- Scan logs (anonymous): Kept for 30 days for abuse prevention
+- You can request deletion anytime by emailing piyushcoding@gmail.com
+
+6. Your Rights (GDPR, CCPA, etc.)
+
+- Right to access, delete, or restrict processing
+- Right to object to processing
+- No automated decision-making affecting legal rights
+- Contact us at piyushcoding@gmail.com for any request
+
+7. Children's Privacy
+
+- Our Service is not for children under 13
+- We do not knowingly collect data from children
+
+8. International Data Transfers
+
+- Data processed in USA (Vercel servers)
+- We comply with GDPR for EU users via standard contractual clauses
+
+9. Changes to This Policy
+
+- We may update this policy occasionally
+- Changes posted here with new "Last Updated" date
+
+10. Contact Us
+
+Email: piyushcoding@gmail.com
+Website: https://codeguard-ai.vercel.app
+
+By using CodeGuard AI, you agree to this Privacy Policy.
+
+Made with ❤️ by Piyush (independent developer)
